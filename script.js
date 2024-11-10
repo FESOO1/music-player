@@ -27,6 +27,7 @@ const musicData = [
         authorName: 'Author Four'
     }
 ];
+let musicCounter = 0;
 
 // MUSIC PLAYER CONTROLS
 
@@ -36,7 +37,7 @@ window.addEventListener('click', () => {
     };
 });
 
-for (let i = 0; i < musicPlayerControlButton.length; i++) {
+/* for (let i = 0; i < musicPlayerControlButton.length; i++) {
     musicPlayerControlButton[i].addEventListener('click', e => {
         e.stopImmediatePropagation();
 
@@ -45,7 +46,17 @@ for (let i = 0; i < musicPlayerControlButton.length; i++) {
         };
         musicPlayerControlButton[i].classList.add('music-player-control-active');
     });
-};
+}; */
+
+playMusicButton.addEventListener('click', () => {
+    musicPlayer.src = musicData[musicCounter].musicItself;
+    musicPlayer.play();
+});
+
+pauseMusicButton.addEventListener('click', () => {
+    musicPlayer.src = musicData[musicCounter].musicItself;
+    musicPlayer.pause();
+});
 
 // DISPLAYING DATA
 
@@ -84,5 +95,12 @@ function displayMusicData() {
                 musicPlayer.play();
             });
         };
+
+        // NEXT MUSIC BUTTON
+        nextMusicButton.addEventListener('click', () => {
+            musicContainerItself[musicCounter].classList.remove('music-player-music-itself-active');
+            musicCounter++;
+            musicContainerItself[musicCounter].classList.add('music-player-music-itself-active');
+        });
     };
 };

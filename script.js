@@ -66,7 +66,7 @@ function displayMusicData() {
     for (let i = 0; i < 4; i++) {
         musicPlayerListContainer.innerHTML += `
             <li class="music-player-music-itself">
-                <button class="music-player-music-itself-button" onclick="playSongButton()">
+                <button class="music-player-music-itself-button">
                     <h4 class="music-player-music-itself-name">${musicData[i].musicName}</h4>
                     <h6 class="music-player-music-itself-author-name">${musicData[i].authorName}</h6>
                 </button>

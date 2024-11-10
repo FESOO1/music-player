@@ -15,6 +15,16 @@ body {
     background-color: rgb(16,16,16);
 }
 
+/* MUSIC PLAYER */
+
+.music-player {
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+}
+
 /* MAIN PRARENT CONTAINER */
 
 .container {
@@ -99,6 +109,10 @@ body {
     border: 1px dashed rgba(0, 0, 0, 0);
     background-color: transparent;
     cursor: pointer;
+}
+
+.music-player-control-active {
+    border: 1px dashed orangered;
 }
 
 .music-player-control-svg {

@@ -1,4 +1,10 @@
 const musicPlayerListContainer = document.querySelector('.music-player-music-list-container');
+const musicPlayer = document.querySelector('.music-player');
+const musicPlayerControlButton = document.querySelectorAll('.music-player-control');
+const prevMusicButton = document.getElementById('prevMusicButton');
+const nextMusicButton = document.getElementById('nextMusicButton');
+const pauseMusicButton = document.getElementById('pauseMusicButton');
+const playMusicButton = document.getElementById('playMusicButton');
 const musicData = [
     {
         musicItself: './assets/music/music-1.m4a',
@@ -22,6 +28,25 @@ const musicData = [
     }
 ];
 
+// MUSIC PLAYER CONTROLS
+
+window.addEventListener('click', () => {
+    for (const musicPlayerControlButtons of musicPlayerControlButton) {
+        musicPlayerControlButtons.classList.remove('music-player-control-active');
+    };
+});
+
+for (let i = 0; i < musicPlayerControlButton.length; i++) {
+    musicPlayerControlButton[i].addEventListener('click', e => {
+        e.stopImmediatePropagation();
+
+        for (const musicPlayerControlButtons of musicPlayerControlButton) {
+            musicPlayerControlButtons.classList.remove('music-player-control-active');
+        };
+        musicPlayerControlButton[i].classList.add('music-player-control-active');
+    });
+};
+
 // DISPLAYING DATA
 
 window.addEventListener('DOMContentLoaded', displayMusicData);
@@ -42,6 +67,8 @@ function displayMusicData() {
             </li>
         `;
 
+        musicPlayerListContainer.firstElementChild.classList.add('music-player-music-itself-active');
+
         // SING A SONG BUTTON
         const musicContainerItself = document.querySelectorAll('.music-player-music-itself');
         const musicItselfPlayButton = document.querySelectorAll('.music-player-music-itself-button');
@@ -51,6 +78,10 @@ function displayMusicData() {
                     musicContainerItselfs.classList.remove('music-player-music-itself-active');
                 };
                 musicContainerItself[i].classList.add('music-player-music-itself-active');
+
+                // PLAY A SONG
+                musicPlayer.src = musicData[i].musicItself;
+                musicPlayer.play();
             });
         };
     };

@@ -60,10 +60,12 @@ body {
 
 .music-player-controls-themselves {
     border-radius: 0.5rem;
-    background: url(https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat;
+    background: url(./assets/controls-bg.jpg) no-repeat;
     background-size: cover;
     overflow: hidden;
     position: relative;
+    display: flex;
+    align-items: flex-end;
 }
 
 .music-player-controls-themselves::before {
@@ -72,4 +74,33 @@ body {
     height: 100%;
     position: absolute;
     background: radial-gradient(circle at 50% 50%, transparent 50%, rgba(0, 0, 0, 0.573));
+}
+
+/* MUSIC PLAYER CONTROLS */
+
+.music-player-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+/* MUSIC PLAYER CONTROL */
+
+.music-player-control {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    border-radius: 0.5rem;
+    border: 0;
+    border: 1px dashed orangered;
+    background-color: transparent;
+}
+
+.music-player-control-svg {
+    color: white;
+    width: 30px;
+    height: 30px;
 }

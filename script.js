@@ -82,6 +82,7 @@ function displayMusicData() {
 
         // SING A SONG BUTTON
         const musicContainerItself = document.querySelectorAll('.music-player-music-itself');
+        const musicContainerItselfDeleteButton = document.querySelectorAll('.music-player-music-itself-remove-button');
         const musicItselfPlayButton = document.querySelectorAll('.music-player-music-itself-button');
         for (let i = 0; i < musicItselfPlayButton.length; i++) {
             musicItselfPlayButton[i].addEventListener('click', () => {
@@ -97,10 +98,15 @@ function displayMusicData() {
         };
 
         // NEXT MUSIC BUTTON
-        nextMusicButton.addEventListener('click', () => {
+        /* nextMusicButton.addEventListener('click', () => {
             musicContainerItself[musicCounter].classList.remove('music-player-music-itself-active');
             musicCounter++;
             musicContainerItself[musicCounter].classList.add('music-player-music-itself-active');
+        }); */
+
+        // DELETE BUTTON
+        musicContainerItselfDeleteButton[i].addEventListener('click', () =>{
+            musicPlayerListContainer.removeChild(musicContainerItself[i]);
         });
     };
 };
